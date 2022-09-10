@@ -1,7 +1,17 @@
-<fieldset class="checkboxgroup">
-    <h2>Tasks</h2>
-    <% @tasks.each do |task| %>
-      <label><input type="checkbox"><%=link_to task.title, show_path(task)%></label>
-    <% end %>
-    <p><%= link_to 'Create new task', new_task_path %></p>
-</fieldset>
+<div class="container text-center">
+  <h2>Tasks</h2>
+    <fieldset class="list-group">
+      <% @tasks.each do |task| %>
+        <% if task.completed%>
+          <label class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" checked><%=link_to task.title, task_path(task)%>
+          </label>
+        <% else %>
+          <label class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" ><%=link_to task.title, task_path(task)%>
+          </label>
+        <% end %>
+      <% end %>
+      <p><%= link_to 'Create new task', new_task_path, class: 'btn btn-light m-3' %></p>
+  </fieldset>
+</div>

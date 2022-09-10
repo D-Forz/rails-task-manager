@@ -1,3 +1,19 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<label><input type="checkbox"><%=@task.completed%></label>
+<div class="container text-center">
+  <div class="card text-dark bg-light mb-3">
+    <div class="card-body">
+      <h3 class="card-title"><%= @task.title %></h3>
+      <p class="card-text"><%= @task.details %></p>
+      <% if @task.completed %>
+        <label><input class="form-check-input me-1" type="checkbox" checked><%@task.completed%></label>
+      <% else %>
+        <label><input class="form-check-input me-1" type="checkbox"><%@task.completed%></label>
+      <% end %>
+      <br>
+      <%= link_to "Edit this task", edit_task_path(@task), class: 'card-link'%>
+      <%= link_to "Back to tasks", tasks_path, class: 'card-link' %>
+    </div>
+    <div class="card-footer">
+      <%= button_to "Destroy this task", task_path(@task), method: :delete, class: 'btn btn-light' %>
+    </div>
+  </div>
+</div>
