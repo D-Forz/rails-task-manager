@@ -1,0 +1,7 @@
+<fieldset class="checkboxgroup">
+    <h2>Tasks</h2>
+    <% @tasks.each do |task| %>
+      <label><input type="checkbox"><%=link_to task.title, show_path(task)%></label>
+    <% end %>
+    <p><%= link_to 'Create new task', new_task_path %></p>
+</fieldset>

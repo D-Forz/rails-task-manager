@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ .checkboxgroup{
+  width: 20em;
+  overflow: auto;
+}
+.checkboxgroup h2{
+  width: 7em;
+  text-align: right;
+}
+.checkboxgroup label{
+  width: 12em;
+  float: right;
+}
